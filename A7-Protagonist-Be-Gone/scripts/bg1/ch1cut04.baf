@@ -1,0 +1,132 @@
+// *** BGT/Tutu: Modified Sarevok ambush cutscene script ***
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Gorion")
+    Wait(2)
+    ForceSpell("Ogre02",WIZARD_LIGHTNING_BOLT)
+    Wait(2)
+    %bg1_gorion_run_child%
+    Wait(1)
+    ForceSpell("Ogre",WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    ForceSpell("Ogre",WIZARD_MAGIC_MISSILE)
+    ForceSpell(Myself,WIZARD_SHIELD)
+    ActionOverride("Tamoko",ForceSpell(Player1,CLERIC_FLAME_STRIKE))
+    Wait(1)
+    ForceSpell([ENEMY],WIZARD_FLAME_ARROW)
+    Wait(1)
+    ForceSpell([ENEMY],WIZARD_MELF_ACID_ARROW)
+    Wait(1)
+    ForceSpell([ENEMY],WIZARD_MAGIC_MISSILE)
+    ForceSpell([ENEMY],WIZARD_MAGIC_MISSILE)
+    Wait(1)
+    ForceSpell([ENEMY],WIZARD_MAGIC_MISSILE)
+    ForceSpell([ENEMY],WIZARD_MAGIC_MISSILE)
+    Face(0)  // S
+    SmallWait(3)
+    DisplayStringHead(Myself,@2000) // Noo! My child, what have I done?
+    Wait(2)
+    %bg1_tamoko_spell_sleep%
+    AttackNoSound("Sarevok")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    Wait(7)
+    MoveToPoint([3025.1675])
+    Wait(1)
+    Face(8)
+    Wait(1)
+    MoveToPoint([3077.1550])
+    FaceObject("Gorion")
+    SmallWait(3)
+    DisplayStringHead(Myself,@2010) // Gorion!
+    LeaveParty()
+    Wait(3)
+    Kill(Myself)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Sarevok")
+    Wait(10)
+    AttackNoSound("Gorion")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Tamoko")
+    Wait(3)
+    ForceSpell(Player1,FORCE_DAMAGE_1)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ogre")
+    Wait(8)
+    Attack("Gorion")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("Ogre02")
+    Wait(5)
+    Attack("Gorion")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("%cutspy%")
+    Wait(27)
+    ActionOverride("Sarevok",SetSequence(SEQ_ATTACK_SLASH))
+    ActionOverride("Gorion",DisplayString(Myself,70787))  // Deathbringer Assault
+    SmallWait(3)
+    ActionOverride("Sarevok",ApplyDamage("Gorion",49,SLASHING))
+    ActionOverride("Sarevok",CreateVisualEffectObject("SPBOLTGL","Gorion"))
+    ScreenShake([20.20],3)
+    ActionOverride("Sarevok",Kill("Gorion"))
+    ActionOverride("Sarevok",SetSequence(SEQ_ATTACK_SLASH))
+    Wait(4)
+    FadeToColor([20.0],0)
+    Wait(2)
+    DayNight(DAWN_END)
+    Weather(NOWEATHER)
+    ActionOverride("Sarevok",DestroySelf())
+    ActionOverride("Tamoko",DestroySelf())
+    Kill("Ogre")
+    Kill("Ogre02")
+    Wait(2)
+    StartCutScene("a7~ch1c5")
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("%imoen%")
+    Wait(1)
+    JoinParty()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)
+    LeaveParty()
+END

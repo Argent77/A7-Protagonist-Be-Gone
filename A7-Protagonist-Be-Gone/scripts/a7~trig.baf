@@ -1,0 +1,71 @@
+// *** BG2: Helper creature on Waukeen's Promenade: triggers game over ***
+
+// No party left -> Game Over
+IF
+  !Global("EnteredWaukeen","AR0700",0)
+  Global("A7~Trigger","AR0700",0)
+  !Global("A7~GameOver","GLOBAL",0)
+THEN
+RESPONSE #100
+  SetInterrupt(FALSE)
+  SetGlobal("A7~Trigger","AR0700",1)
+  ClearAllActions()
+  StartCutSceneMode()
+  Wait(5)
+  FadeToColor([60.0],0)
+  Wait(4)
+  StartMovie("endcrdit")
+  EndCutSceneMode()
+  EndCredits()
+END
+
+// Party disbands
+IF
+  !Global("EnteredWaukeen","AR0700",0)
+  Global("A7~Trigger","AR0700",0)
+  Global("A7~GameOver","GLOBAL",0)
+  InMyArea(Player1)
+THEN
+RESPONSE #100
+  SetInterrupt(FALSE)
+  SetGlobal("A7~Trigger","AR0700",1)
+  ClearAllActions()
+  StartCutSceneMode()
+  Wait(4)
+  DisplayStringHead(Player1,@1020) // Looks like the adventure is over before it has really begun.
+  Wait(5)
+  StartCutScene("a7~ct02")
+END
+
+IF
+  !Global("EnteredWaukeen","AR0700",0)
+  Global("A7~Trigger","AR0700",0)
+  Global("A7~GameOver","GLOBAL",0)
+  InMyArea(Player2)
+THEN
+RESPONSE #100
+  SetInterrupt(FALSE)
+  SetGlobal("A7~Trigger","AR0700",1)
+  ClearAllActions()
+  StartCutSceneMode()
+  Wait(4)
+  DisplayStringHead(Player2,@1020) // Looks like the adventure is over before it has really begun.
+  Wait(5)
+  StartCutScene("a7~ct02")
+END
+
+IF
+  !Global("EnteredWaukeen","AR0700",0)
+  Global("A7~Trigger","AR0700",0)
+  Global("A7~GameOver","GLOBAL",0)
+THEN
+RESPONSE #100
+  SetInterrupt(FALSE)
+  SetGlobal("A7~Trigger","AR0700",1)
+  ClearAllActions()
+  StartCutSceneMode()
+  Wait(4)
+  DisplayStringHead([PC],@1020) // Looks like the adventure is over before it has really begun.
+  Wait(5)
+  StartCutScene("a7~ct02")
+END

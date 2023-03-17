@@ -1,0 +1,32 @@
+// *** BG2: Modified opening cutscene, part 2 ***
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("%imoen%")
+    ActionOverride("CSJon",DestroySelf())
+    JumpToPoint([3198.2837])
+    OpenDoor("DOOR11")
+    MoveToPoint([3405.2924])
+    Face(0)
+    SmallWait(5)
+    MoveToPoint([3675.2874])
+    Unlock("Cell03")
+    Face(10)
+    MultiPlayerSync()
+    SmallWait(5)
+    DisplayStringHead(Myself,@1010) // Oh no, I'm too late! Rest in peace, <CHARNAME>.
+    Wait(5)
+    DisplayStringHead(Myself,@1011) // I hope the others fared better than you did.
+    Wait(3)
+    %extra_wait%
+    Face(8)
+    SmallWait(10)
+    Face(12)
+    SmallWait(10)
+    MoveViewPoint([3900.2835],VERY_FAST)
+    MoveToPoint([3900.2835])
+    Wait(1)
+    UnhideGUI()
+    EndCutSceneMode()
+END

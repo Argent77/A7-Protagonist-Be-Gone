@@ -1,0 +1,23 @@
+// *** BG2 ***
+// Irenicus
+@1000 = ~What a disappointment you turned out to be. Oh well, I can still make use of Imoen.~
+
+// Imoen
+@1010 = ~Oh no, I'm too late! Rest in peace, <CHARNAME>.~
+@1011 = ~I hope the others fared better than you did.~
+
+// Party member
+@1020 = ~It looks like the adventure is over before it has really begun.~
+
+// *** BG1 ***
+// Gorion
+@2000 = ~Noo! My child, what have I done?~
+
+// Charname
+@2010 = ~Gorion!~
+
+// Imoen
+@2020 = ~Oh no, I never should have let you go alone!~
+@2021 = ~Rest in peace, <CHARNAME>.~
+@2022 = ~I should move on and make plans for my own future as adventurer.~
+@2023 = ~But first I need a decent meal. Let's go to the nearest tavern!~

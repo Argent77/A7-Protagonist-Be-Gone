@@ -1,0 +1,46 @@
+// *** BGT/Tutu: Modified Sarevok ambush cutscene script, continued from CH1CUT04.BCS ***
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("%imoen%")
+    JumpToPoint([2466.1540])
+    Wait(2)
+    MoveToPoint([2950.1500])
+    Face(14)
+    SmallWait(10)
+    Face(10)
+    Wait(1)
+    Face(14)
+    SmallWait(5)
+    MoveToPoint([3045.1554])
+    Face(12)
+    DisplayStringHead(Myself,@2020)  // Oh no, I never should have let you go alone!
+    Wait(5)
+    DisplayStringHead(Myself,@2021)  // Rest in peace, <CHARNAME>.
+    Wait(5)
+    Face(10)
+    DisplayStringHead(Myself,@2022)  // I should move on and make plans for my own future as adventurer.
+    Wait(6)
+    DisplayStringHead(Myself,@2023)  // But first I need a decent meal. Let's go to the nearest tavern.
+    Wait(5)
+    MoveToPoint([3074.1585])
+    MoveToPoint([3650.1730])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("%cutspy%")
+    MoveViewPoint([3077.1550],INSTANT)
+    Wait(2)
+    FadeFromColor([30.0],0)
+    Wait(31)
+    FadeToColor([45.0],0)
+    Wait(4)
+    StartMovie("%endcrdit%")
+    FadeToColor([1.0],0)
+    EndCutSceneMode()
+    GoToStartScreen()
+END

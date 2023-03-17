@@ -1,0 +1,62 @@
+// *** BG2: Party disbands ***
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("A7~TRIG")
+    Wait(3)
+    FadeToColor([45.0],0)
+    Wait(3)
+    StartMovie("endcrdit")
+    EndCutSceneMode()
+    EndCredits()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveToPoint([3380.540])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)
+    MoveToPoint([3380.1420])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)
+    MoveToPoint([3680.1000])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)
+    MoveToPoint([2920.1730])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)
+    MoveToPoint([2320.1740])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)
+    MoveToPoint([2030.1530])
+END

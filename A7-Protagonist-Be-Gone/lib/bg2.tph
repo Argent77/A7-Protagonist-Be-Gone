@@ -1,0 +1,246 @@
+// preparations
+ACTION_IF (GAME_IS ~bgt eet~) BEGIN
+  OUTER_TEXT_SPRINT imoen ~Imoen2~
+END ELSE BEGIN
+  OUTER_TEXT_SPRINT imoen ~Imoen~
+END
+
+ACTION_IF (GAME_IS ~soa tob bgt~) BEGIN
+  OUTER_TEXT_SPRINT imoen_joined_global ~~
+  OUTER_TEXT_SPRINT extra_wait ~Wait(2)~
+END ELSE BEGIN
+  OUTER_TEXT_SPRINT imoen_joined_global ~SetGlobal("bd_imoen_joined","AR0602",1)~
+  OUTER_TEXT_SPRINT extra_wait ~~
+END
+
+ACTION_IF (GAME_IS ~eet~) BEGIN
+  // needed for older EET versions
+  COPY_EXISTING ~campaign.2da~ ~override~
+    READ_2DA_ENTRIES_NOW campaign 1
+    FOR (row = 3; row < campaign; ++row) BEGIN
+      READ_2DA_ENTRY_FORMER campaign row 1 resref
+      PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.bcs~) BEGIN
+        TO_UPPER ~resref~
+        DEFINE_ASSOCIATIVE_ARRAY scripts BEGIN ~%resref%~ => ~1~ END
+      END
+    END
+  BUT_ONLY IF_EXISTS
+
+  ACTION_PHP_EACH scripts AS resref => _ BEGIN
+    COPY_EXISTING ~%resref%.BCS~ ~override~
+      DECOMPILE_AND_PATCH BEGIN
+        REPLACE_TEXTUALLY ~!InParty(Player1)~
+                          ~!InParty(Player1)%LNL%False()~
+      END
+    BUT_ONLY IF_EXISTS
+  END
+END
+
+// Added initial waiting space for Imoen
+COPY ~%MOD_FOLDER%/bitmaps/ar0602sr.bmp~ ~override~
+
+COPY_EXISTING ~ar0602.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    SET pos1 = INDEX_BUFFER(~\b\(Global("MoveScreen","......",0)\)~)
+    PATCH_IF (pos1 >= 0) BEGIN
+      SET pos1 = RINDEX_BUFFER(~^IF$~ pos1)
+      PATCH_IF (pos1 >= 0) BEGIN
+        SET pos2 = INDEX_BUFFER(~^END$~ pos1)
+        PATCH_IF (pos2 > pos1) BEGIN
+          READ_ASCII pos1 block_src (pos2 - pos1)
+          DELETE_BYTES pos1 (pos2 - pos1)
+          INNER_PATCH_SAVE block_dst ~%block_src%~ BEGIN
+            REPLACE_TEXTUALLY ~MoveViewPoint.*$~ ~~
+          END
+          SET len = STRING_LENGTH ~%block_dst%~
+          INSERT_BYTES pos1 len
+          WRITE_ASCIIE pos1 ~%block_dst%~ (len)
+        END
+      END
+    END
+  END
+BUT_ONLY
+
+COMPILE EVAL ~%MOD_FOLDER%/scripts/newgame.baf~
+COMPILE EVAL ~%MOD_FOLDER%/scripts/newgame2.baf~
+
+// Making opening cutscene skippable
+ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+  OUTER_TEXT_SPRINT new_block ~  RESPONSE #1
+    ActionOverride("csgolem",DestroySelf())
+    ActionOverride("ishaddud",DestroySelf())
+    ActionOverride("CSJon",DestroySelf())
+    MoveViewPoint([3900.2835],INSTANT)
+    ActionOverride("%imoen%",JumpToPoint([3900.2835]))
+    ActionOverride("%imoen%",Face(NE))
+    OpenDoor("DOOR11")
+    Unlock("Cell03")
+    Kill(Player1)
+    ActionOverride(Player1,LeaveParty())
+    UnhideGUI()
+    FadeFromColor([10.0],0)
+    SmallWait(10)
+    %imoen_joined_global%
+    ActionOverride("%imoen%",JoinParty())
+    EndCutSceneMode()
+~
+  OUTER_SET new_block_size = STRING_LENGTH ~%new_block%~
+
+  COPY_EXISTING ~cutskip2.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      SET start = INDEX_BUFFER(~Switch("BD_CUTSCENE_BREAKABLE","GLOBAL")~)
+      PATCH_IF (start >= 0) BEGIN
+        SET start = INDEX_BUFFER(~^[ %TAB%]*RESPONSE #1$~ start)
+        PATCH_IF (start >= 0) BEGIN
+          SET end = INDEX_BUFFER(~^[ %TAB%]*RESPONSE #~ (start + 10))
+          PATCH_IF (end > start) BEGIN
+            DELETE_BYTES start (end - start)
+            INSERT_BYTES start new_block_size
+            WRITE_ASCIIE start ~%new_block%~ (new_block_size)
+          END
+        END
+      END
+    END
+  BUT_ONLY IF_EXISTS
+END
+
+// Handling Waukeen Promenade cutscene
+COPY_EXISTING ~imoen10.cre~ "override/a7~immy.cre"
+  PATCH_IF (GAME_IS ~bg2ee eet~) BEGIN
+    WRITE_LONG 0x10 (THIS | BIT23)  // no tooltip
+  END
+  WRITE_ASCII SCRIPT_OVERRIDE ~~ (8)
+  WRITE_ASCII SCRIPT_CLASS ~~ (8)
+  WRITE_ASCII SCRIPT_RACE ~~ (8)
+  WRITE_ASCII SCRIPT_GENERAL ~~ (8)
+  WRITE_ASCII SCRIPT_DEFAULT ~~ (8)
+  WRITE_ASCII DIALOG ~~ (8)
+  WRITE_ASCII DEATHVAR "A7~IMMY" (32)
+  LPF ADD_CRE_EFFECT
+    INT_VAR
+      opcode = 66  // Translucency
+      target = 2
+      timing = 9
+      parameter1 = 255
+  END
+  LPF ADD_CRE_EFFECT
+    INT_VAR
+      opcode = 287  // Remove feet circle
+      target = 2
+      timing = 9
+  END
+
+COMPILE EVAL
+        "%MOD_FOLDER%/scripts/a7~ct01.baf"
+        "%MOD_FOLDER%/scripts/a7~ct02.baf"
+        "%MOD_FOLDER%/scripts/a7~trig.baf"
+        "%MOD_FOLDER%/scripts/a7~immy1.baf"
+
+COPY_EXISTING ~tele0700.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~\(Clicked([^)]+)\)~ ~\1 OR(2) NumInPartyGT(1) !InParty("%imoen%")~
+  END
+BUT_ONLY
+
+EXTEND_BOTTOM ~tele0700.bcs~ ~%MOD_FOLDER%/scripts/tele0700-bottom.baf~ EVAL
+
+COPY "%MOD_FOLDER%/creatures/a7~trig.cre" "override"
+
+COPY_EXISTING ~ar0700.are~ ~override~
+  LPF fj_are_structure
+    INT_VAR
+      fj_loc_x = 2725
+      fj_loc_y = 790
+    STR_VAR
+      fj_structure_type = ~actor~
+      fj_name = "A7~Trigger"
+      fj_cre_resref = "a7~trig"
+  END
+BUT_ONLY
+
+COPY_EXISTING ~cut01.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~StartCutScene~ ~DestroySelf() StartCutScene~
+    REPLACE_TEXTUALLY ~^[ %TAB%]*LeaveArea~ ~ActionOverride(Player1,LeaveArea~
+    REPLACE_TEXTUALLY ~CutSceneId(Player1)~ ~CutSceneId("%imoen%") SetDialog("") LeaveParty() GivePartyAllEquipment() LeaveAreaLUA("AR0700","",[2860.900],4)~
+    REPLACE_TEXTUALLY ~ActionOverride("%imoen%",.*~ ~~
+  END
+BUT_ONLY IF_EXISTS
+
+COPY_EXISTING ~cut01a.bcs~ ~override~
+              ~cut01b.bcs~ ~override~
+              ~cut01c.bcs~ ~override~
+              ~cut01d.bcs~ ~override~
+              ~cut01e.bcs~ ~override~
+              ~cut01f.bcs~ ~override~
+              ~cut01g.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~CutSceneId(Player1)~ %CutSceneId("A7~TRIG")%
+  END
+BUT_ONLY IF_EXISTS
+
+
+// Fixing Imoen's emergency trigger
+COPY_EXISTING ~imoen.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    SET pos1 = INDEX_BUFFER(~Global("ImoenRunning","LOCALS",0)~)
+    PATCH_IF (pos1 >= 0) BEGIN
+      SET pos1 = RINDEX_BUFFER(~^IF$~ pos1)
+      PATCH_IF (pos1 >= 0) BEGIN
+        SET pos2 = INDEX_BUFFER(~^END$~ pos1)
+        PATCH_IF (pos2 > pos1) BEGIN
+          SET pos2 += 3
+          READ_ASCII pos1 block_src (pos2 - pos1)
+          DELETE_BYTES pos1 (pos2 - pos1)
+
+          INNER_PATCH_SAVE block1 ~%block_src%~ BEGIN
+            REPLACE_TEXTUALLY ~\(Global("ImoenRunning","LOCALS",0)\)~ ~!NumInParty(1) \1~
+            REPLACE_TEXTUALLY ~StartDialog\(ue\)?("ImoenP",[^)]+)~ ~StartDialog("ImoenP",[PC])~
+          END
+          INNER_PATCH_SAVE block2 ~%block_src%~ BEGIN
+            REPLACE_TEXTUALLY ~\(Global("ImoenRunning","LOCALS",0)\)~ ~NumInParty(1) \1~
+            REPLACE_TEXTUALLY ~StartDialog\(ue\)?("ImoenP",[^)]+)~ %ClearAllActions() StartCutSceneMode() StartCutScene("a7~immy1")%
+          END
+          TEXT_SPRINT block_dst ~%block1%%LNL%%block2%~
+
+          SET len = STRING_LENGTH ~%block_dst%~
+          INSERT_BYTES pos1 len
+          WRITE_ASCIIE pos1 ~%block_dst%~ (len)
+        END
+      END
+    END
+  END
+BUT_ONLY
+
+
+// Handling creature dialogs
+<<<<<<<< .../inlined/a7-protagonist-be-gone/aataqah.d
+REPLACE_TRANS_TRIGGER ~AATAQAH~ BEGIN 25 END BEGIN 0 END ~^\(.+[%WNL%]*\)+$~ ~!Name("%imoen%",LastTalkedToBy) IsValidForPartyDialog("%imoen%")~
+REPLACE_TRANS_TRIGGER ~AATAQAH~ BEGIN 25 END BEGIN 1 END ~^\(.+[%WNL%]*\)+$~ ~!Name("%imoen%",LastTalkedToBy) !IsValidForPartyDialog("%imoen%")~
+REPLACE_TRANS_TRIGGER ~AATAQAH~ BEGIN 25 END BEGIN 2 END ~^\(.+[%WNL%]*\)+$~ ~False()~
+REPLACE_TRANS_TRIGGER ~AATAQAH~ BEGIN 25 END BEGIN 3 END ~^\(.+[%WNL%]*\)+$~ ~Name("%imoen%",LastTalkedToBy)~
+>>>>>>>>
+COMPILE EVAL ~.../inlined/a7-protagonist-be-gone/aataqah.d~
+
+COPY_EXISTING ~imoen.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~!Detect(Player1)~ ~NumInParty(1)~
+    REPLACE_TEXTUALLY ~Global("Rested","LOCALS",0)~ ~False() Global("Rested","LOCALS",0)~
+    REPLACE_TEXTUALLY ~Global("Rielev","LOCALS",0)~ ~False() Global("Rielev","LOCALS",0)~
+    REPLACE_TEXTUALLY ~Global("ImoenIlyich","LOCALS",0)~ ~False() Global("ImoenIlyich","LOCALS",0)~
+  END
+BUT_ONLY IF_EXISTS
+
+<<<<<<<< .../inlined/a7-protagonist-be-gone/jaheira.d
+REPLACE_STATE_TRIGGER ~JAHEIRA~ 0 ~NumTimesTalkedTo(0) Name("%imoen%",LastTalkedToBy)~
+REPLACE_STATE_TRIGGER ~JAHEIRA~ 73 ~False()~
+>>>>>>>>
+COMPILE EVAL ~.../inlined/a7-protagonist-be-gone/jaheira.d~
+
+COPY_EXISTING ~imoen.bcs~ ~override~
+              ~clonroom.bcs~ ~override~
+              ~library.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~\bPlayer1\b~ ~[PC]~
+  END
+BUT_ONLY IF_EXISTS

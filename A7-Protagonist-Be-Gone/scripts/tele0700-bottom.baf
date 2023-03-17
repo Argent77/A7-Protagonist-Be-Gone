@@ -1,0 +1,17 @@
+// *** Added to TELE0700.BCS ***
+
+IF
+  Clicked([ANYONE])
+  !NumInPartyGT(1)
+  InParty("%imoen%")
+  Range(LastTrigger,25)
+THEN
+  RESPONSE #100
+    SaveGame(0)
+    MultiPlayerSync()
+    FadeToColor([1.0],0)
+    TakePartyItem("MISC4E")  // Energy Cells
+    TakePartyItem("MISC4G")  // Portal Key
+    StartCutSceneMode()
+    StartCutScene("a7~ct01")
+END

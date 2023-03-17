@@ -1,0 +1,14 @@
+// *** BG2: Imoen's emergency script ***
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("%imoen%")
+    MoveViewObject(Myself,INSTANT)
+    DisplayStringWait(Myself,19965)  // No... no... NO! I'm not dying here! I'm not! Oh, my head hurts! I have to get to the surface. I have to go!
+    Wait(1)
+    FadeToColor([15.0],0)
+    Wait(1)
+    StartCutScene("a7~ct01")
+END

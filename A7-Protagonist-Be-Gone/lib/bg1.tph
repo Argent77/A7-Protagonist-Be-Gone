@@ -1,0 +1,51 @@
+<<<<<<<< .../inlined/A7-Protagonist-Be-Gone/blank
+>>>>>>>>
+
+// preparations
+ACTION_IF (GAME_IS ~bgee~) BEGIN
+  OUTER_SPRINT imoen ~Imoen~
+  OUTER_SPRINT endcrdit ~endcrdit~
+END ELSE ACTION_IF (GAME_IS ~eet~) BEGIN
+  OUTER_SPRINT imoen ~Imoen2~
+  OUTER_SPRINT endcrdit ~bgendcrd~
+END ELSE ACTION_IF (GAME_IS ~bgt~) BEGIN
+  OUTER_SPRINT ch1cut02 ~ch1cut02~  // cutscene resref
+  OUTER_SPRINT ch1cut04 ~ch1cut04~  // cutscene resref
+  OUTER_SPRINT imoen ~Imoen2~
+  OUTER_SPRINT cutspy ~M05PCspy~
+  OUTER_SPRINT endcrdit ~bgencrdt~
+  OUTER_SPRINT bg1_gorion_run_child ~DisplayStringHead(Myself,4439)~
+  OUTER_SPRINT bg1_tamoko_spell_sleep ~ForceSpellRES("BGCH1CUT","Tamoko")~
+END ELSE BEGIN  // Tutu
+  OUTER_SPRINT ch1cut02 ~_h1cut02~  // cutscene resref
+  OUTER_SPRINT ch1cut04 ~_h1cut04~  // cutscene resref
+  OUTER_SPRINT imoen ~Imoen~
+  OUTER_SPRINT cutspy ~Cutspy~
+  OUTER_SPRINT endcrdit ~_ndcrdit~
+  OUTER_SPRINT bg1_gorion_run_child ~VerbalConstant(Myself,UNHAPPY_BREAKING_POINT)~
+  OUTER_SPRINT bg1_tamoko_spell_sleep ~ForceSpellRES("d0gorpws","tamoko")~
+END
+
+// Extending cutscene
+ACTION_IF (GAME_IS ~bgee eet~) BEGIN
+  COMPILE EVAL "%MOD_FOLDER%/scripts/bgee/ch1cut04.baf"
+               "%MOD_FOLDER%/scripts/bgee/a7~ch1c5.baf"
+END ELSE BEGIN
+  COPY_EXISTING ~%ch1cut02%.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      PATCH_IF (GAME_IS ~bgt~) BEGIN
+        // Adding Imoen to map
+        REPLACE_TEXTUALLY ~\(CreateCreature("SAREV1"\)~ ~CreateCreature("IMOEN1",[3140.3681],12) %LNL% \1~
+      END
+      PATCH_IF (GAME_IS ~tutu tutu_totsc~) BEGIN
+        // Fixing Cutspy position in Tutu
+        REPLACE_TEXTUALLY ~CreateCreature("_CUTSPY",.+$~ ~CreateCreature("_CUTSPY",[3150.1440],0)~
+      END
+    END
+  BUT_ONLY
+
+  COPY ".../inlined/A7-Protagonist-Be-Gone/blank" "override/%ch1cut04%.bcs"
+    INSERT_FILE 0 "%MOD_FOLDER%/scripts/bg1/ch1cut04.baf" EVAL
+    COMPILE_BAF_TO_BCS
+  COMPILE EVAL "%MOD_FOLDER%/scripts/bg1/a7~ch1c5.baf" "override"
+END

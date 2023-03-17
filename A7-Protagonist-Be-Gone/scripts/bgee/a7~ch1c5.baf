@@ -1,0 +1,46 @@
+// *** BGEE: Modified Sarevok ambush cutscene script, continued from CH1CUT04.BCS ***
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("%imoen%")
+    JumpToPoint([2466.1540])
+    Wait(2)
+    MoveToPoint([2918.1584])
+    Face(SE)
+    SmallWait(10)
+    Face(N)
+    Wait(1)
+    Face(SE)
+    SmallWait(5)
+    MoveToPoint([3022.1662])
+    Face(E)
+    DisplayStringHead(Myself,@2020) // Oh no, I never should have let you go alone!
+    Wait(5)
+    DisplayStringHead(Myself,@2021) // Rest in peace, <CHARNAME>.
+    Wait(5)
+    Face(NEE)
+    DisplayStringHead(Myself,@2022) // I should move on and make plans for my own future as adventurer.
+    Wait(6)
+    DisplayStringHead(Myself,@2023) // But first I need a decent meal. Let's go to the nearest tavern.
+    Wait(5)
+    MoveToPoint([3650.1730])
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("bdtarget")
+    MoveViewPoint([3056.1658],INSTANT)
+    Wait(2)
+    FadeFromColor([30.0],0)
+    Wait(30)
+    FadeToColor([45.0],0)
+    Wait(4)
+    StartMovie("%endcrdit%")
+    FadeToColor([1.0],0)
+    // EndCredits()
+    EndCutSceneMode()
+    GoToStartScreen()
+END

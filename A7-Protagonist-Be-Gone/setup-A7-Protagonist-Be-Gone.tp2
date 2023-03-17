@@ -1,0 +1,59 @@
+BACKUP ~weidu_external/backup/A7-Protagonist-Be-Gone~
+AUTHOR ~Argent77~
+VERSION ~0.9-rc1~
+
+ALWAYS
+  // root folder for mutable data
+  OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
+
+  ACTION_DEFINE_ARRAY a7#noconvert BEGIN ~setup~ END
+  ACTION_DEFINE_ARRAY a7#reload BEGIN ~mod~ END
+  LAF HANDLE_CHARSETS
+    INT_VAR
+      from_utf8         = 1
+      infer_charset     = 1
+    STR_VAR
+      default_language  = ~english~
+      tra_path          = EVAL ~%MOD_FOLDER%/languages~
+      out_path          = EVAL ~%WORK_FOLDER%/lang/%MOD_FOLDER%~
+      noconvert_array   = ~a7#noconvert~
+      reload_array      = ~a7#reload~
+  END
+END
+
+
+README ~A7-Protagonist-Be-Gone/readme/readme-%LANGUAGE%.txt~
+       ~A7-Protagonist-Be-Gone/readme/readme.txt~
+
+
+LANGUAGE  ~English~
+          ~english~
+          ~A7-Protagonist-Be-Gone/languages/english/setup.tra~
+          ~A7-Protagonist-Be-Gone/languages/english/mod.tra~
+LANGUAGE  ~Deutsch~
+          ~german~
+          ~A7-Protagonist-Be-Gone/languages/english/setup.tra~
+          ~A7-Protagonist-Be-Gone/languages/english/mod.tra~
+          ~A7-Protagonist-Be-Gone/languages/german/setup.tra~
+          ~A7-Protagonist-Be-Gone/languages/german/mod.tra~
+
+
+BEGIN @1  // Protagonist-be-gone in BG1
+REQUIRE_PREDICATE (GAME_INCLUDES ~bg1~) @100  // Requires BGT, Tutu, BG:EE or EET.
+DESIGNATED 0
+LABEL ~A7-PROTAGONIST-BE-GONE-BG1~
+
+WITH_SCOPE BEGIN
+  INCLUDE ~%MOD_FOLDER%/lib/bg1.tph~
+END
+
+
+BEGIN @2  // Protagonist-be-gone in BG2
+REQUIRE_PREDICATE (GAME_INCLUDES ~soa~) @101  // Requires BG2, BGT, BG2:EE or EET.
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~SkipChateauIrenicus.tp2~ 200) @102 // Not compatible with mod "Skip Chateau Irenicus -> More realistic opening cutscene.
+DESIGNATED 1
+LABEL ~A7-PROTAGONIST-BE-GONE-BG2~
+
+WITH_SCOPE BEGIN
+  INCLUDE ~%MOD_FOLDER%/lib/bg2.tph~
+END
