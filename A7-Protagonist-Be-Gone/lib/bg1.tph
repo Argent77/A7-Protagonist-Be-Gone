@@ -47,5 +47,5 @@ END ELSE BEGIN
   COPY ".../inlined/A7-Protagonist-Be-Gone/blank" "override/%ch1cut04%.bcs"
     INSERT_FILE 0 "%MOD_FOLDER%/scripts/bg1/ch1cut04.baf" EVAL
     COMPILE_BAF_TO_BCS
-  COMPILE EVAL "%MOD_FOLDER%/scripts/bg1/a7~ch1c5.baf" "override"
+  COMPILE EVAL "%MOD_FOLDER%/scripts/bg1/a7~ch1c5.baf"
 END
