@@ -6,6 +6,8 @@
 # Protagonist-Be-Gone!
 *A mod that gets rid of the protagonist, so that Imoen can take her rightful place in the game.*
 
+<img src="https://raw.githubusercontent.com/Argent77/A7-Protagonist-Be-Gone/master/logo.jpg" width="75%" height="75%" />
+
 ## Overview
 
 This mod removes the protagonist, so that Imoen can finally take her rightful place in the game. For that reason the mod provides a "slightly" modified start of the BG1 and BG2 parts of the game series. The game expansions (ToB and SoD) have not been altered.
