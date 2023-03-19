@@ -9,6 +9,11 @@
 // Party member
 @1020 = ~It looks like the adventure is over before it has really begun.~
 
+// Shortened version of strref 38655
+@1050 = ~I have learned... something different. So beautiful you are. I almost can't see you. I just want to go home.~
+// Shortened version of strref 38635
+@1051 = ~Stop calling me "child." Besides, I can tell you that Khalid did not suffer.~
+
 // *** BG1 ***
 // Gorion
 @2000 = ~Noo! My child, what have I done?~

@@ -237,10 +237,22 @@ REPLACE_STATE_TRIGGER ~JAHEIRA~ 73 ~False()~
 >>>>>>>>
 COMPILE EVAL ~.../inlined/a7-protagonist-be-gone/jaheira.d~
 
+<<<<<<<< .../inlined/a7-protagonist-be-gone/imoen.d
+ADD_STATE_TRIGGER ~IMOENJ~ 0 ~False()~ 9 41 57 59 UNLESS ~False()~
+REPLACE_SAY ~IMOENJ~ 40 @1050
+REPLACE_SAY ~IMOENJ~ 30 @1051
+>>>>>>>>
+COMPILE ~.../inlined/a7-protagonist-be-gone/imoen.d~
+
 COPY_EXISTING ~imoen.bcs~ ~override~
-              ~clonroom.bcs~ ~override~
-              ~library.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
     REPLACE_TEXTUALLY ~\bPlayer1\b~ ~[PC]~
+  END
+BUT_ONLY IF_EXISTS
+
+COPY_EXISTING ~clonroom.bcs~ ~override~
+              ~library.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~^IF$~ ~IF False()~
   END
 BUT_ONLY IF_EXISTS
