@@ -6,7 +6,7 @@
 # Protagonist-Be-Gone!
 *A mod that gets rid of the protagonist, so that Imoen can take her rightful place in the game.*
 
-<img src="https://raw.githubusercontent.com/Argent77/A7-Protagonist-Be-Gone/master/logo.jpg" width="75%" height="75%" />
+<img src="https://raw.githubusercontent.com/Argent77/A7-Protagonist-Be-Gone/master/logo.jpg" width="712" height="204" />
 
 ## Overview
 
