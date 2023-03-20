@@ -228,6 +228,19 @@ COPY_EXISTING ~imoen.bcs~ ~override~
     REPLACE_TEXTUALLY ~Global("Rested","LOCALS",0)~ ~False() Global("Rested","LOCALS",0)~
     REPLACE_TEXTUALLY ~Global("Rielev","LOCALS",0)~ ~False() Global("Rielev","LOCALS",0)~
     REPLACE_TEXTUALLY ~Global("ImoenIlyich","LOCALS",0)~ ~False() Global("ImoenIlyich","LOCALS",0)~
+    REPLACE_TEXTUALLY ~\bPlayer1\b~ ~[PC]~
+  END
+BUT_ONLY IF_EXISTS
+
+COPY_EXISTING ~jaheira.bcs~ ~override~
+  SPRINT newline ~ %TAB%%WNL%~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY
+      ~Num\(berOf\)?TimesTalkedTo(0)[%newline%]*Range(\[PC\],[0-9]+)[%newline%]*Range(Player1,[0-9]+)~
+      ~NumTimesTalkedTo(0) Range("%imoen%",10)~
+    REPLACE_TEXTUALLY
+      ~SetGlobalTimer("Shout","LOCALS",[^)]+)[%newline%]*StartDialog\(ue\)?NoSet(Player1)~
+      ~SetGlobalTimer("Shout","LOCALS",5) StartDialogueNoSet("%imoen%")~
   END
 BUT_ONLY IF_EXISTS
 
@@ -243,12 +256,6 @@ REPLACE_SAY ~IMOENJ~ 40 @1050
 REPLACE_SAY ~IMOENJ~ 30 @1051
 >>>>>>>>
 COMPILE ~.../inlined/a7-protagonist-be-gone/imoen.d~
-
-COPY_EXISTING ~imoen.bcs~ ~override~
-  DECOMPILE_AND_PATCH BEGIN
-    REPLACE_TEXTUALLY ~\bPlayer1\b~ ~[PC]~
-  END
-BUT_ONLY IF_EXISTS
 
 COPY_EXISTING ~clonroom.bcs~ ~override~
               ~library.bcs~ ~override~
