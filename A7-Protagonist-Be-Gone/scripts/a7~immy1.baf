@@ -1,5 +1,4 @@
 // *** BG2: Imoen's emergency script ***
-
 IF
   True()
 THEN

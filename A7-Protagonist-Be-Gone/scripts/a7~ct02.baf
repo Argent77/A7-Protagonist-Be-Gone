@@ -1,5 +1,4 @@
 // *** BG2: Party disbands ***
-
 IF
   True()
 THEN
