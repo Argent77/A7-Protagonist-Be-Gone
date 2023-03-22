@@ -17,7 +17,7 @@ END
 
 IF
   Clicked([ANYONE])
-  !InParty("Imoen")
+  !InParty("%imoen%")
   Range(LastTrigger,25)
 THEN
   RESPONSE #100
