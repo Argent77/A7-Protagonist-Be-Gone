@@ -7,7 +7,6 @@ THEN
     SetGlobal("A7~GameOver","GLOBAL",1)
     CreateCreatureObject("a7~immy",Myself,0,0,0)
     SmallWait(3)
-    ActionOverride("A7~IMMY",MakeGlobal())
     ActionOverride("A7~IMMY",JoinParty())
     MultiPlayerSync()
     SmallWait(3)
