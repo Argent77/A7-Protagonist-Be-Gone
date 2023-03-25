@@ -7,7 +7,7 @@ ACTION_IF (GAME_IS ~bgee~) BEGIN
   OUTER_SPRINT endcrdit ~endcrdit~
 END ELSE ACTION_IF (GAME_IS ~eet~) BEGIN
   OUTER_SPRINT imoen ~Imoen2~
-  OUTER_SPRINT endcrdit ~bgendcrd~
+  OUTER_SPRINT endcrdit ~credits~
 END ELSE ACTION_IF (GAME_IS ~bgt~) BEGIN
   OUTER_SPRINT ch1cut02 ~ch1cut02~  // cutscene resref
   OUTER_SPRINT ch1cut04 ~ch1cut04~  // cutscene resref
