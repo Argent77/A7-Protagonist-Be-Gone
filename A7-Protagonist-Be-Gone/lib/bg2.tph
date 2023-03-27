@@ -61,6 +61,9 @@ COPY_EXISTING ~ar0602.bcs~ ~override~
   END
 BUT_ONLY
 
+// Voiced line for Jon Irenicus
+COPY "%MOD_FOLDER%/sounds/a7~jon01.wav" "override"
+
 COMPILE EVAL ~%MOD_FOLDER%/scripts/newgame.baf~
 COMPILE EVAL ~%MOD_FOLDER%/scripts/newgame2.baf~
 

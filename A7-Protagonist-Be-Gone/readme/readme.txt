@@ -4,6 +4,8 @@ Protagonist-Be-Gone!
 Author:   Argent77
 Version:  1.0
 
+Download: https://github.com/Argent77/A7-Protagonist-Be-Gone/releases
+
 
 Overview
 ~~~~~~~~
