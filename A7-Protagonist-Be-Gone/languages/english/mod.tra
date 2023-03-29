@@ -4,7 +4,7 @@
 
 // Imoen
 @1010 = ~Oh no, I'm too late! Rest in peace, <CHARNAME>.~
-@1011 = ~I hope the others fared better than you did.~
+@1011 = ~I hope the others fared better than you.~
 
 // Party member
 @1020 = ~It looks like the adventure is over before it has really begun.~
