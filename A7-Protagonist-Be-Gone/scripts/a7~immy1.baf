@@ -9,5 +9,5 @@ THEN
     Wait(1)
     FadeToColor([15.0],0)
     Wait(1)
-    StartCutScene("a7~ct01")
+    StartCutScene("a7~ct01a")
 END

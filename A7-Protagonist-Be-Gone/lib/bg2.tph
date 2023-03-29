@@ -101,7 +101,7 @@ COMPILE EVAL
 
 COPY_EXISTING ~tele0700.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
-    REPLACE_TEXTUALLY ~\(Clicked([^)]+)\)~ ~\1 NumInPartyGT(1) InParty("%imoen%")~
+    REPLACE_TEXTUALLY ~\(Clicked([^)]+)\)~ ~\1 NumInPartyAliveGT(1) InParty("%imoen%")~
   END
 BUT_ONLY
 
@@ -162,11 +162,11 @@ COPY_EXISTING ~imoen.bcs~ ~override~
           DELETE_BYTES pos1 (pos2 - pos1)
 
           INNER_PATCH_SAVE block1 ~%block_src%~ BEGIN
-            REPLACE_TEXTUALLY ~\(Global("ImoenRunning","LOCALS",0)\)~ ~!NumInParty(1) \1~
+            REPLACE_TEXTUALLY ~\(Global("ImoenRunning","LOCALS",0)\)~ ~!NumInPartyAlive(1) \1~
             REPLACE_TEXTUALLY ~StartDialog\(ue\)?("ImoenP",[^)]+)~ ~StartDialog("ImoenP",[PC])~
           END
           INNER_PATCH_SAVE block2 ~%block_src%~ BEGIN
-            REPLACE_TEXTUALLY ~\(Global("ImoenRunning","LOCALS",0)\)~ ~NumInParty(1) \1~
+            REPLACE_TEXTUALLY ~\(Global("ImoenRunning","LOCALS",0)\)~ ~NumInPartyAlive(1) \1~
             REPLACE_TEXTUALLY ~StartDialog\(ue\)?("ImoenP",[^)]+)~ %ClearAllActions() StartCutSceneMode() StartCutScene("a7~immy1")%
           END
           TEXT_SPRINT block_dst ~%block1%%LNL%%block2%~
@@ -192,7 +192,7 @@ COMPILE EVAL ~.../inlined/a7-protagonist-be-gone/aataqah.d~
 
 COPY_EXISTING ~imoen.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
-    REPLACE_TEXTUALLY ~!Detect(Player1)~ ~NumInParty(1)~
+    REPLACE_TEXTUALLY ~!Detect(Player1)~ ~NumInPartyAlive(1)~
     REPLACE_TEXTUALLY ~Global("Rested","LOCALS",0)~ ~False() Global("Rested","LOCALS",0)~
     REPLACE_TEXTUALLY ~Global("Rielev","LOCALS",0)~ ~False() Global("Rielev","LOCALS",0)~
     REPLACE_TEXTUALLY ~Global("ImoenIlyich","LOCALS",0)~ ~False() Global("ImoenIlyich","LOCALS",0)~
@@ -205,7 +205,7 @@ COPY_EXISTING ~jaheira.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
     REPLACE_TEXTUALLY
       ~Num\(berOf\)?TimesTalkedTo(0)[%newline%]*Range(\[PC\],[0-9]+)[%newline%]*Range(Player1,[0-9]+)~
-      ~NumTimesTalkedTo(0) Range("%imoen%",10)~
+      ~NumTimesTalkedTo(0) Range("%imoen%",6)~
     REPLACE_TEXTUALLY
       ~SetGlobalTimer("Shout","LOCALS",[^)]+)[%newline%]*StartDialog\(ue\)?NoSet(Player1)~
       ~SetGlobalTimer("Shout","LOCALS",5) StartDialogueNoSet("%imoen%")~

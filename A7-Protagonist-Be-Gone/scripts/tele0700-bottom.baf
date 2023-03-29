@@ -1,7 +1,7 @@
 // *** Added to TELE0700.BCS ***
 IF
   Clicked([ANYONE])
-  NumInParty(1)
+  NumInPartyAlive(1)
   InParty("%imoen%")
   Range(LastTrigger,25)
 THEN
