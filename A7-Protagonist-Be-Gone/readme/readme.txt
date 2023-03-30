@@ -53,5 +53,5 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 History
 ~~~~~~~
 
-Version 1.0:
+Version 1.0 (April 1st, 2023)
 - Initial (and most likely final) release

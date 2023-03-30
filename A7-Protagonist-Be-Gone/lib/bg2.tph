@@ -41,6 +41,19 @@ COPY ~%MOD_FOLDER%/bitmaps/ar0602sr.bmp~ ~override~
 
 COPY_EXISTING ~ar0602.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
+    SPRINT search_reg ~StartCutScene\(Ex\)?("NewGame".*~
+    SET pos1 = INDEX_BUFFER(~%search_reg%~)
+    PATCH_IF (pos1 >= 0) BEGIN
+      // moving cutscene start into separate script blocks
+      SET pos1 = RINDEX_BUFFER(~^IF$~ pos1) + 3
+      SET pos2 = INDEX_BUFFER(~^THEN$~ pos1)
+      READ_ASCII pos1 ar0602_original_condition (pos2 - pos1)
+      SET pos1 = INDEX_BUFFER(~^END~ pos2) + 4
+      INSERT_FILE pos1 ~%MOD_FOLDER%/scripts/ar0602-insert.baf~ EVAL
+
+      REPLACE_TEXTUALLY ~%search_reg%~ ~Continue()~
+    END
+
     SET pos1 = INDEX_BUFFER(~\b\(Global("MoveScreen","[^"]+",0)\)~)
     PATCH_IF (pos1 >= 0) BEGIN
       SET pos1 = RINDEX_BUFFER(~^IF$~ pos1)
@@ -64,8 +77,9 @@ BUT_ONLY
 // Voiced line for Jon Irenicus
 COPY "%MOD_FOLDER%/sounds/a7~jon01.wav" "override"
 
-COMPILE EVAL ~%MOD_FOLDER%/scripts/newgame.baf~
-COMPILE EVAL ~%MOD_FOLDER%/scripts/newgame2.baf~
+COMPILE EVAL "%MOD_FOLDER%/scripts/a7~new1a.baf"
+COMPILE EVAL "%MOD_FOLDER%/scripts/a7~new1b.baf"
+COMPILE EVAL "%MOD_FOLDER%/scripts/a7~new2.baf"
 
 // Handling Waukeen Promenade cutscene
 COPY_EXISTING ~imoen10.cre~ "override/a7~immy.cre"

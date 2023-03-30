@@ -1,4 +1,4 @@
-// *** BG2: Modified opening cutscene, part 1 ***
+// *** BG2: Modified opening cutscene, part 1 (for party size = 1) ***
 IF
   True()
 THEN
@@ -81,7 +81,7 @@ THEN
     Wait(1)
     PlaySound("EFF_P18")
     Wait(3)
-    StartCutScene("newgame2")
+    StartCutScene("a7~new2")
 END
 
 IF

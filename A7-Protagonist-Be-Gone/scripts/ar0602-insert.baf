@@ -1,0 +1,16 @@
+// *** Start different opening cutscenes based on initial party size ***
+IF
+  %ar0602_original_condition%
+  NumInParty(1)
+THEN
+  RESPONSE #100
+    StartCutScene("a7~new1a")
+END
+
+IF
+  %ar0602_original_condition%
+  !NumInParty(1)
+THEN
+  RESPONSE #100
+    StartCutScene("a7~new1b")
+END
