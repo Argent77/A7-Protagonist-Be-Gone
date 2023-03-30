@@ -1,10 +1,14 @@
 BACKUP ~weidu_external/backup/A7-Protagonist-Be-Gone~
-AUTHOR ~Argent77~
-VERSION ~1.0~
+SUPPORT ~https://github.com/Argent77/A7-Protagonist-Be-Gone~
+VERSION ~0.9-rc2~
 
 ALWAYS
   // root folder for mutable data
   OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
+
+  ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN
+    FAIL @103 // DLC Merger is required before mods can be installed for this game.
+  END
 
   ACTION_DEFINE_ARRAY a7#noconvert BEGIN ~setup~ END
   ACTION_DEFINE_ARRAY a7#reload BEGIN ~mod~ END
