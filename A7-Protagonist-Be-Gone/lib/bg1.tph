@@ -26,6 +26,9 @@ END ELSE BEGIN  // Tutu
   OUTER_SPRINT bg1_tamoko_spell_sleep ~ForceSpellRES("d0gorpws","tamoko")~
 END
 
+// Voiced line for Sarevok
+COPY "%MOD_FOLDER%/languages/%LANGUAGE%/sounds/a7~sar01.wav" ~override~ IF_EXISTS
+
 // Extending cutscene
 ACTION_IF (GAME_IS ~bgee eet~) BEGIN
   COMPILE EVAL "%MOD_FOLDER%/scripts/bgee/ch1cut04.baf"

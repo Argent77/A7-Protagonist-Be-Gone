@@ -89,7 +89,14 @@ IF
 THEN
   RESPONSE #100
     CutSceneId("Sarevok")
-    Wait(16)
+    Wait(12)
+    SmallWait(5)
+    Face(SSW)
+    DisplayStringHead(Myself,@2030) // YES!!!
+    Wait(2)
+    FaceObject("Gorion")
+    Wait(1)
+    SmallWait(10)
     MoveToObject("Gorion")
     AttackNoSound("Gorion")
 END

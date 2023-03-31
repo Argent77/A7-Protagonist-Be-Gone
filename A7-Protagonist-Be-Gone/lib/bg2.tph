@@ -75,7 +75,7 @@ COPY_EXISTING ~ar0602.bcs~ ~override~
 BUT_ONLY
 
 // Voiced line for Jon Irenicus
-COPY "%MOD_FOLDER%/sounds/a7~jon01.wav" "override"
+COPY "%MOD_FOLDER%/languages/%LANGUAGE%/sounds/a7~jon01.wav" "override" IF_EXISTS
 
 COMPILE EVAL "%MOD_FOLDER%/scripts/a7~new1a.baf"
 COMPILE EVAL "%MOD_FOLDER%/scripts/a7~new1b.baf"

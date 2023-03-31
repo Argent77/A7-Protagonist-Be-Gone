@@ -57,6 +57,13 @@ THEN
   RESPONSE #100
     CutSceneId("Sarevok")
     Wait(10)
+    AttackOneRound("Gorion")
+    Wait(5)
+    SmallWait(5)
+    Face(0) // S
+    DisplayStringHead(Myself,@2030) // YES!!!
+    Wait(1)
+    SmallWait(10)
     AttackNoSound("Gorion")
 END
 
