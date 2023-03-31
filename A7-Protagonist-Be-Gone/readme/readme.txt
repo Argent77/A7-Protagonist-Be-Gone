@@ -10,14 +10,31 @@ Download: https://github.com/Argent77/A7-Protagonist-Be-Gone/releases
 Overview
 ~~~~~~~~
 
-In the tradition of "XXX-Be-Gone" mods I present to you "Protagonist-Be-Gone!" This mod removes the
-protagonist, so that Imoen can finally take her rightful place in the game.
+In the tradition of "XXX-Be-Gone" mods I present to you "Protagonist-Be-Gone!". This mod removes
+the protagonist, so that Imoen can finally take her rightful place in the game.
 
 For that reason the mod provides a "slightly" modified start of the BG1 and BG2 parts of the game
 series. The game expansions (ToB and SoD) have not been altered.
 
-It is primarily thought as a joke, since many players complained about Imoen being reduced to a side
-kick in Charname's adventures, and is *not* meant to be used for a serious walkthrough.
+It is primarily thought as a joke, since many players complained about Imoen being reduced to a
+side kick in Charname's adventures, and is *not* meant to be used for a serious walkthrough.
+
+
+Installation
+~~~~~~~~~~~~
+
+This is a WeiDU mod, that means it is very easy to install. Simply unpack the downloaded archive
+into your game directory and run either "setup-A7-Protagonist-Be-Gone.exe" (Windows) or
+"setup-A7-Protagonist-Be-Gone.command" (macOS). Follow the instructions and you are ready to start.
+
+To uninstall, run "setup-A7-Protagonist-Be-Gone.exe" or "setup-A7-Protagonist-Be-Gone.command"
+again and follow the prompts.
+
+Note for Siege of Dragonspear (SoD):
+GOG and Steam both install the "Siege of Dragonspear" expansion in a way that is not moddable out
+of the box. You must install a mod called "DLC Merger" on your SoD installation before this or any
+other WeiDU-based mods can be installed.
+It can be downloaded from here: https://github.com/Argent77/A7-DlcMerger/releases/latest
 
 
 Compatibility
