@@ -3,5 +3,6 @@
 
 @100 = ~Requires BGT, Tutu, BG:EE or EET.~
 @101 = ~Requires BG2, BGT, BG2:EE or EET.~
-@102 = ~Not compatible with mod "Skip Chateau Irenicus -> More realistic opening cutscene".~
-@103 = ~DLC Merger is required before mods can be installed for this game.~
+@102 = ~DLC Merger is required before mods can be installed for this game.~
+@103 = ~Not compatible with "Skip Chateau Irenicus".~
+@104 = ~Not compatible with "Dungeon Be Gone".~

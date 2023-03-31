@@ -34,7 +34,7 @@ The mod supports the following games and game variants:
 It should be installed after mods that modify the opening cutscenes, such as Tweaks Anthology's
 "Faster Chapter One and Two Cutscenes and Dreams".
 
-The mod is not compatible with Skip Chateau Irenicus > More realistic opening cutscene.
+The mod is not compatible with "Skip Chateau Irenicus" and "Dungeon Be Gone".
 
 
 Credits

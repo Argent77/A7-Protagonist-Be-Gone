@@ -7,7 +7,7 @@ ALWAYS
   OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
 
   ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN
-    FAIL @103 // DLC Merger is required before mods can be installed for this game.
+    FAIL @102 // DLC Merger is required before mods can be installed for this game.
   END
 
   ACTION_DEFINE_ARRAY a7#noconvert BEGIN ~setup~ END
@@ -54,7 +54,8 @@ END
 
 BEGIN @2  // Protagonist-be-gone in BG2
 REQUIRE_PREDICATE (GAME_INCLUDES ~soa~) @101  // Requires BG2, BGT, BG2:EE or EET.
-REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~SkipChateauIrenicus.tp2~ 200) @102 // Not compatible with mod "Skip Chateau Irenicus -> More realistic opening cutscene.
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~SkipChateauIrenicus.tp2~ 0) @103 // Not compatible with "Skip Chateau Irenicus".
+REQUIRE_PREDICATE (NOT MOD_IS_INSTALLED ~setup-dungeonbegone.tp2~ 0) @104 // Not compatible with "Dungeon Be Gone".
 DESIGNATED 1
 LABEL ~A7-PROTAGONIST-BE-GONE-BG2~
 

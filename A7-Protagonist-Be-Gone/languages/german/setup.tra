@@ -3,8 +3,9 @@
 
 @100 = ~Benoetigt BGT, Tutu, BG:EE oder EET.~
 @101 = ~Benoetigt BG2, BGT, BG2:EE oder EET.~
-@102 = ~Nicht kompatibel mit der Modkomponente "Ueberspringe Chateau Irenicus -> Realistischere Eroeffnungssequenz".~
-@103 = ~DLC Merger wird benoetigt, bevor in diesem Spiel Mods installiert werden koennen.~
+@102 = ~DLC Merger wird benoetigt, bevor in diesem Spiel Mods installiert werden koennen.~
+@103 = ~Nicht kompatibel mit "Ueberspringe Chateau Irenicus".~
+@104 = ~Nicht kompatibel mit "Dungeon Be Gone".~
 
 
 // WeiDU prompts
