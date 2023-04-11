@@ -40,6 +40,12 @@ LANGUAGE  ~Deutsch~
           ~A7-Protagonist-Be-Gone/languages/english/mod.tra~
           ~A7-Protagonist-Be-Gone/languages/german/setup.tra~
           ~A7-Protagonist-Be-Gone/languages/german/mod.tra~
+LANGUAGE  ~Russian (by yota13)~
+          ~russian~
+          ~A7-Protagonist-Be-Gone/languages/english/setup.tra~
+          ~A7-Protagonist-Be-Gone/languages/english/mod.tra~
+          ~A7-Protagonist-Be-Gone/languages/russian/setup.tra~
+          ~A7-Protagonist-Be-Gone/languages/russian/mod.tra~
 
 
 BEGIN @1  // Protagonist-be-gone in BG1
