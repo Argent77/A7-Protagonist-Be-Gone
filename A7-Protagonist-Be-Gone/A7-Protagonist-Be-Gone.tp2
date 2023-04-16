@@ -1,6 +1,6 @@
 BACKUP ~weidu_external/backup/A7-Protagonist-Be-Gone~
 SUPPORT ~https://github.com/Argent77/A7-Protagonist-Be-Gone~
-VERSION ~1.0~
+VERSION ~1.1~
 
 ALWAYS
   // root folder for mutable data

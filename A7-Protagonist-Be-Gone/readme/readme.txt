@@ -2,9 +2,12 @@ Protagonist-Be-Gone!
 ~~~~~~~~~~~~~~~~~~~~
 
 Author:   Argent77
-Version:  1.0
+Version:  1.1
 
-Download: https://github.com/Argent77/A7-Protagonist-Be-Gone/releases
+Download:   https://github.com/Argent77/A7-Protagonist-Be-Gone/releases
+Discussion: https://www.gibberlings3.net/forums/topic/36598-protagonist-be-gone-for-bg2-bgt-tutu-bgee-bg2ee-and-eet/
+            http://www.shsforums.net/topic/61754-protagonist-be-gone-for-bg2-bgt-tutu-bgee-bg2ee-and-eet/
+            https://forums.beamdog.com/discussion/87219/mod-protagonist-be-gone-for-bg2-bgt-tutu-bgee-bg2ee-and-eet
 
 
 Overview
@@ -76,4 +79,4 @@ Version 1.1
 - Added Russian translation (thanks yota13)
 
 Version 1.0 (April 1st, 2023)
-- Initial (and most likely final) release
+- Initial release
