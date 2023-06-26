@@ -62,6 +62,8 @@ Credits
 
 Coding and testing: Argent77
 
+French translation: JohnBob
+
 Russian translation: yota13
 
 
@@ -74,6 +76,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 
 History
 ~~~~~~~
+
+Version 1.2
+- Added French translation (thanks JohnBob)
 
 Version 1.1
 - Added Russian translation (thanks yota13)

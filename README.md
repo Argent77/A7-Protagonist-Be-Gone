@@ -1,7 +1,7 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Argent77/A7-Protagonist-Be-Gone?color=darkred&include_prereleases&label=latest%20release)](https://github.com/Argent77/A7-Protagonist-Be-Gone/releases/latest)
 [![Platform](https://img.shields.io/static/v1?label=platform&message=Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Project%20Infinity&color=informational)](https://github.com/Argent77/A7-Protagonist-Be-Gone/releases/latest)
 [![Supported games](https://img.shields.io/static/v1?label=supported%20games&message=BG2%20%7C%20BGT%20%7C%20Tutu%20%7C%20BG%3AEE%20%7C%20BG2%3AEE%20%7C%20EET&color=indigo)](https://github.com/Argent77/A7-Protagonist-Be-Gone)
-[![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20German%20%7C%20Russian&color=limegreen)](https://github.com/Argent77/A7-Protagonist-Be-Gone)
+[![Language](https://img.shields.io/static/v1?label=language&message=English%20%7C%20French%20%7C%20German%20%7C%20Russian&color=limegreen)](https://github.com/Argent77/A7-Protagonist-Be-Gone)
 
 # Protagonist-Be-Gone!
 *A mod that gets rid of the protagonist, so that Imoen can take her rightful place in the game.*
