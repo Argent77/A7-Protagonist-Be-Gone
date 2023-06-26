@@ -2,7 +2,7 @@ Protagonist-Be-Gone!
 ~~~~~~~~~~~~~~~~~~~~
 
 Author:   Argent77
-Version:  1.1
+Version:  1.2
 
 Download:   https://github.com/Argent77/A7-Protagonist-Be-Gone/releases
 Discussion: https://www.gibberlings3.net/forums/topic/36598-protagonist-be-gone-for-bg2-bgt-tutu-bgee-bg2ee-and-eet/
