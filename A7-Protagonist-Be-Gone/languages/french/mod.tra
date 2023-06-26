@@ -1,6 +1,6 @@
 // *** BG2 ***
 // Irenicus
-@1000 = ~Tu t'es avéré n'être qu'une lamentable déception après tout ! Cela importe peu, ton amie Imoen sera parfaite pour parvenir à mes fins.~ ~Tu t'es avérée n'être qu'une lamentable déception après tout ! Cela importe peu, ton amie Imoen sera parfaite pour parvenir à mes fins.~ [a7~jon01]
+@1000 = ~Tu t'es avéré n'être qu'une lamentable déception après tout ! Cela importe peu, ton amie Imoen sera parfaite pour parvenir à mes fins.~ [a7~jon01] ~Tu t'es avérée n'être qu'une lamentable déception après tout ! Cela importe peu, ton amie Imoen sera parfaite pour parvenir à mes fins.~ [a7~jon01]
 
 // Imoen
 @1010 = ~Oh non, <CHARNAME> ! J'aurais étais si heureuse de te revoir... Repose en paix mon ami.~ ~Oh non, <CHARNAME> ! J'aurais étais si heureuse de te revoir... Repose en paix mon amie.~
