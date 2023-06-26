@@ -1,0 +1,31 @@
+// *** BG2 ***
+// Irenicus
+@1000 = ~Tu t'es avéré n'être qu'une lamentable déception après tout ! Cela importe peu, ton amie Imoen sera parfaite pour parvenir à mes fins.~ ~Tu t'es avérée n'être qu'une lamentable déception après tout ! Cela importe peu, ton amie Imoen sera parfaite pour parvenir à mes fins.~ [a7~jon01]
+
+// Imoen
+@1010 = ~Oh non, <CHARNAME> ! J'aurais étais si heureuse de te revoir... Repose en paix mon ami.~ ~Oh non, <CHARNAME> ! J'aurais étais si heureuse de te revoir... Repose en paix mon amie.~
+@1011 = ~J'espère que nos camarades sont toujours en vie.~
+
+// Party member
+@1020 = ~Il semblerait que cette aventure soit terminée avant même d'avoir commencé.~
+
+// Shortened version of strref 38655
+@1050 = ~Ici, j'ai appris... des choses bien différentes. Tu es si belle. Je suis presque incapable de te regarder. Je veux seulement rentrer à la maison.~
+// Shortened version of strref 38635
+@1051 = ~Arrête de me traiter comme une enfant ! Jaheira... Je peux t'assurer que Khalid n'a pas trop souffert.~ 
+
+// *** BG1 ***
+// Gorion
+@2000 = ~Nooooonnn ! Mon enfant, mon cher enfant !~ ~Nooooonnn ! Mon enfant, ma chère enfant !~
+
+// Charname
+@2010 = ~Gorion !~
+
+// Imoen
+@2020 = ~Oh non, <CHARNAME> ! je n'aurais jamais dû te laisser partir seul !~ ~Oh non, <CHARNAME> ! je n'aurais jamais dû te laisser partir seule !~
+@2021 = ~Repose en paix mon ami.~ ~Repose en paix mon amie.~
+@2022 = ~Il ne me reste plus qu'à continuer ma route et réfléchir à mon avenir, pourquoi pas aventurière ?~
+@2023 = ~Mais pour l'instant j'ai l'estomac dans les talons. Direction la taverne la plus proche !~
+
+// Sarevok
+@2030 = ~HÉ ! HÉ ! HÉ ! AH AH AH ! AHAHAHAHAH !!!~ [a7~sar01]
