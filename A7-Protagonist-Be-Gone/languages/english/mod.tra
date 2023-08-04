@@ -14,6 +14,17 @@
 // Shortened version of strref 38635
 @1051 = ~Stop calling me "child." Besides, I can tell you that Khalid did not suffer.~
 
+// Updated version of strref 11515
+@1052 = ~I suffer a terrible curiosity; I see paths that branch in a thousand directions, and each a thousand again, but for all I see, Imoen remains a mystery.~
+// Updated version of strref 38670
+@1053 = ~Verily... of that I have no doubt, Minsc. But the question is hypothetical and requires an answer born of the wisdom of Imoen, not your impatience.~
+// Updated version of strref 38794
+@1054 = ~Ah, I see whom I must talk to. No offense, <GABBER>, but I am curious how Imoen will react to me! Imoen, I have questions! Be not afraid!~
+// Updated version of strref 38797
+@1055 = ~I had hoped to speak with Imoen... <PRO_HESHE> is such fun to watch. But you, <GABBER>, now I turn to you.~
+// Updated version of strref 38800
+@1056 = ~The paths before Imoen branch a thousand times. It is strangely difficult for me to see what comes.~
+
 // *** BG1 ***
 // Gorion
 @2000 = ~Noo! My child, what have I done?~

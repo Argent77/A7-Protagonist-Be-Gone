@@ -14,6 +14,17 @@
 // Shortened version of strref 38635
 @1051 = ~Hört auf, mich Kind zu nennen. Außerdem weiß ich, dass Khalid nicht gelitten hat.~
 
+// Updated version of strref 11515
+@1052 = ~Ich leide unter meiner fürchterlichen Neugierde. Ich sehe Pfade, die sich in tausende Unterpfade verzweigen, und jeder dieser Unterpfade verzweigt sich wiederrum tausende Male. Aber trotz allem, was ich sehe, bleibt mir Imoen ein Rätsel.~
+// Updated version of strref 38670
+@1053 = ~Aber sicher doch … daran habe ich ja keinen Zweifel, Minsk. Aber es ist doch nur eine hypothetische Frage, und ich möchte eine Antwort hören, die aus der Weisheit von Imoen entspringt und nicht aus Eurer Ungeduld.~
+// Updated version of strref 38794
+@1054 = ~Ah, ich sehe, mit wem ich sprechen muss. Fühlt Euch nicht übergangen, <GABBER>, aber ich bin neugierig, wie Imoen auf mich reagiert! Imoen, ich will Euch Fragen stellen! Habt keine Angst!~
+// Updated version of strref 38797
+@1055 = ~Ich hatte gehofft mit Imoen sprechen zu können. Tja, <PRO_HESHE> ist so lustig zu beobachten. Aber nun, <GABBER>, nun will ich mich Euch zuwenden.~
+// Updated version of strref 38800
+@1056 = ~Die Pfade, die vor Imoen liegen, gabeln sich eintausend Mal auf, aber Eure Pfade sind ebenfalls zahlreich. Es ist ungewöhnlich schwer für mich zu erkennen, was in der Zukunft liegt.~
+
 // *** BG1 ***
 // Gorion
 @2000 = ~Neiin! Mein Kind, was habe ich getan?~

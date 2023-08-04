@@ -77,6 +77,9 @@ ShareAlike 4.0 International License" (https://creativecommons.org/licenses/by-n
 History
 ~~~~~~~
 
+Version 1.3
+- Removed references to Charname from Aataqah's dialog
+
 Version 1.2
 - Added French translation (thanks JohnBob)
 

@@ -14,6 +14,17 @@
 // Shortened version of strref 38635
 @1051 = ~Arrête de me traiter comme une enfant ! Jaheira... Je peux t'assurer que Khalid n'a pas trop souffert.~ 
 
+// Updated version of strref 11515
+@1052 = ~Je souffre d'une insatiable curiosité ; je vois des chemins qui s'ouvrent dans mille directions, et se séparent chacun en mille nouveaux chemins. Mais malgré tout cela, Imoen reste un mystère.~
+// Updated version of strref 38670
+@1053 = ~Assurément... Je n'en doute pas un instant, Minsc. Mais ceci n'est qu'une... mise en situation hypothétique, et demande une réponse dictée par la sagesse de Imoen, pas par votre impatience.~
+// Updated version of strref 38794
+@1054 = ~Ah, je vois la personne à qui je dois m'adresser. Ne le prenez pas mal, <GABBER>, mais c'est Imoen qui attise ma curiosité. J'ai des questions pour vous, Imoen. Approchez sans crainte !~
+// Updated version of strref 38797
+@1055 = ~J'espérais parler avec Imoen... L'observer a été si divertissant. Mais c'est à vous, <GABBER>, que je m'adresse maintenant.~
+// Updated version of strref 38800
+@1056 = ~Devant Imoen s'ouvrent des chemins menant dans mille directions différentes. Il m'est difficile de percevoir ce qui en surgira.~
+
 // *** BG1 ***
 // Gorion
 @2000 = ~Nooooonnn ! Mon enfant, mon cher enfant !~ ~Nooooonnn ! Mon enfant, ma chère enfant !~
