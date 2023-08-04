@@ -79,6 +79,7 @@ History
 
 Version 1.3
 - Removed references to Charname from Aataqah's dialog
+- Fixed several dialog triggers for Imoen in Chateau Irenicus
 
 Version 1.2
 - Added French translation (thanks JohnBob)
