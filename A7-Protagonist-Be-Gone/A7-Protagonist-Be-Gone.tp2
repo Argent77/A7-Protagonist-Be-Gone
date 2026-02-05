@@ -52,7 +52,12 @@ LANGUAGE  ~French~
           ~A7-Protagonist-Be-Gone/languages/english/mod.tra~
           ~A7-Protagonist-Be-Gone/languages/french/setup.tra~
           ~A7-Protagonist-Be-Gone/languages/french/mod.tra~
-
+LANGUAGE  ~Chinese~
+          ~schinese~
+          ~A7-Protagonist-Be-Gone/languages/english/setup.tra~
+          ~A7-Protagonist-Be-Gone/languages/english/mod.tra~
+          ~A7-Protagonist-Be-Gone/languages/schinese/setup.tra~
+          ~A7-Protagonist-Be-Gone/languages/schinese/mod.tra~
 
 BEGIN @1  // Protagonist-be-gone in BG1
 REQUIRE_PREDICATE (GAME_INCLUDES ~bg1~) @100  // Requires BGT, Tutu, BG:EE or EET.
