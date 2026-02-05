@@ -66,6 +66,8 @@ French translation: JohnBob
 
 Russian translation: yota13
 
+Simplified Chinese: MephistoSatanDevil
+
 
 Copyright Notice
 ~~~~~~~~~~~~~~~~
@@ -80,6 +82,7 @@ History
 Version 1.3
 - Removed references to Charname from Aataqah's dialog
 - Fixed several dialog triggers for Imoen in Chateau Irenicus
+- Added Simplified Chinese translation (thanks MephistoSatanDevil)
 
 Version 1.2
 - Added French translation (thanks JohnBob)
